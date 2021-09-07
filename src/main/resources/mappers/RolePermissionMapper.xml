@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lixinzhen.dao.RolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.lixinzhen.pojo.RolePermissionKey">
+    <id column="role_id" jdbcType="BIGINT" property="roleId" />
+    <id column="permission" jdbcType="BIGINT" property="permission" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.lixinzhen.pojo.RolePermissionKey">
+    delete from role_permission
+    where role_id = #{roleId,jdbcType=BIGINT}
+      and permission = #{permission,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lixinzhen.pojo.RolePermissionKey">
+    insert into role_permission (role_id, permission)
+    values (#{roleId,jdbcType=BIGINT}, #{permission,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lixinzhen.pojo.RolePermissionKey">
+    insert into role_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>
