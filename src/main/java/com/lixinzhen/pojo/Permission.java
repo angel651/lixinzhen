@@ -30,13 +30,4 @@ public class Permission {
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
     }
-
-    @Override
-    public String toString() {
-        return "Permission{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                '}';
-    }
 }

@@ -5,7 +5,7 @@ import com.lixinzhen.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -15,16 +15,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @create 2021/9/7 11:20
  */
 @Controller
-@RequestMapping("/permission")
 public class PermissionController {
+
     @Autowired
     PermissionService permissionService;
-    @GetMapping("/permission")
+
+    /**
+     * 查询权限信息
+     * @param permission
+     * @return
+     */
+    @GetMapping("/permission/selectByPrimaryKey")
     @ResponseBody
-    public String permission(Permission permission){
-        return permissionService.selectByPrimaryKey(permission.getId()).toString();
+    public Permission selectByPrimaryKey(Permission permission){
+        return permissionService.selectByPrimaryKey(permission.getId());
     }
-    @GetMapping("/addPermission")
+
+    /**
+     * 添加权限信息
+     * @param permission
+     * @return
+     */
+    @PostMapping("/permission/addPermission")
     @ResponseBody
     public int addPermission(Permission permission){
         int count = 0;
@@ -33,12 +45,24 @@ public class PermissionController {
         }
         return count;
     }
-    @GetMapping("/delPermission")
+
+    /**
+     * 删除权限信息
+     * @param permission
+     * @return
+     */
+    @PostMapping("/permission/delPermission")
     @ResponseBody
     public int delPermission(Permission permission){
         return permissionService.deleteByPrimaryKey(permission.getId());
     }
-    @GetMapping("/updatePermission")
+
+    /**
+     * 更新权限信息
+     * @param permission
+     * @return
+     */
+    @PostMapping("/permission/updatePermission")
     @ResponseBody
     public int updatePermission(Permission permission){
         return permissionService.updateByPrimaryKey(permission);

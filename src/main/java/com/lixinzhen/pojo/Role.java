@@ -1,11 +1,12 @@
 package com.lixinzhen.pojo;
 
+import java.util.List;
+
 public class Role {
+
     private Integer id;
 
     private String name;
-
-    private String sn;
 
     public Integer getId() {
         return id;
@@ -23,20 +24,4 @@ public class Role {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getSn() {
-        return sn;
-    }
-
-    public void setSn(String sn) {
-        this.sn = sn == null ? null : sn.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", sn='" + sn + '\'' +
-                '}';
-    }
 }

@@ -3,6 +3,10 @@ package com.lixinzhen.pojo;
 public class User {
     private Integer id;
 
+    private Byte age;
+
+    private String sex;
+
     private String username;
 
     private String password;
@@ -13,6 +17,22 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Byte getAge() {
+        return age;
+    }
+
+    public void setAge(Byte age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
     public String getUsername() {
@@ -29,14 +49,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

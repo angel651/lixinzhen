@@ -5,11 +5,13 @@
     <id column="role_id" jdbcType="BIGINT" property="roleId" />
     <id column="permission" jdbcType="BIGINT" property="permission" />
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="com.lixinzhen.pojo.RolePermissionKey">
     delete from role_permission
     where role_id = #{roleId,jdbcType=BIGINT}
       and permission = #{permission,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.lixinzhen.pojo.RolePermissionKey">
     insert into role_permission (role_id, permission)
     values (#{roleId,jdbcType=BIGINT}, #{permission,jdbcType=BIGINT})
@@ -33,4 +35,5 @@
       </if>
     </trim>
   </insert>
+
 </mapper>

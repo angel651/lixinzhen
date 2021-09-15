@@ -1,11 +1,10 @@
 package com.lixinzhen.dao;
 
 import com.lixinzhen.pojo.Permission;
-import org.apache.ibatis.annotations.Mapper;
+import com.lixinzhen.pojo.Role;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Mapper
 public interface PermissionMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -18,4 +17,5 @@ public interface PermissionMapper {
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);
+
 }

@@ -1,11 +1,12 @@
 package com.lixinzhen.dao;
 
 import com.lixinzhen.pojo.User;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -18,4 +19,10 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User selectByName(String userName);
+
+    User selectLogin(@Param("userName") String userName, @Param("passWord") String passWord);
+
+    List<String> selectByRoleIdAndPermission(Integer id);
 }

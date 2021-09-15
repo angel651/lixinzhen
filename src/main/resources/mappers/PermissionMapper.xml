@@ -9,12 +9,18 @@
   <sql id="Base_Column_List">
     id, `name`, url
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from permission
     where id = #{id,jdbcType=INTEGER}
   </select>
+<!--  <select id="selectByRoleIdAndPermission" parameterType="java.lang.Integer" resultType="com.lixinzhen.pojo.Permission">-->
+<!--    select id,url from permission-->
+<!--    where id in (select rp.permission from role_permission rp join role r on rp.role_id = r.id where r.id =#{id} )-->
+<!--  </select>-->
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from permission
     where id = #{id,jdbcType=INTEGER}
@@ -68,4 +74,5 @@
       url = #{url,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>
